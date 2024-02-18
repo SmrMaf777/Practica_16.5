@@ -22,6 +22,15 @@ class ViewController: UIViewController {
         label.text = "Today is a good day!"
         return label
     }()
+    
+    let button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 20
+        button.backgroundColor = .gray
+        button.setTitle("Start", for: .normal)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +43,7 @@ class ViewController: UIViewController {
     private func setupViews() {
         view.addSubview(label1)
         view.addSubview(label2)
+        view.addSubview(button)
     }
     
     private func setupConstraints() {
@@ -42,6 +52,11 @@ class ViewController: UIViewController {
         
         label2.topAnchor.constraint(equalTo: label1.topAnchor, constant: 20).isActive = true
         label2.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        button.topAnchor.constraint(equalTo: label1.topAnchor, constant: 70).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
 
