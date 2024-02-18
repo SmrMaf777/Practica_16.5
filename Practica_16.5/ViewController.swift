@@ -9,10 +9,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let label: UILabel = {
+    let label1: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Hello Swift"
+        return label
+    }()
+    
+    let label2: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Today is a good day!"
         return label
     }()
 
@@ -25,12 +32,16 @@ class ViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.addSubview(label)
+        view.addSubview(label1)
+        view.addSubview(label2)
     }
     
     private func setupConstraints() {
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        label1.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label1.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        label2.topAnchor.constraint(equalTo: label1.topAnchor, constant: 20).isActive = true
+        label2.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }
 
